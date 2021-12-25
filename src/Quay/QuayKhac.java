@@ -94,7 +94,13 @@ public class QuayKhac extends KhoHang {
     public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập STT muốn sửa thông tin: ");
-        int a = sc.nextInt();
+        int a;
+        try {
+            a = sc.nextInt();
+        } catch (Exception ignored) {
+            System.out.println("Không tồn tại món hàng này!");
+            return;
+        }
         System.out.print("Tên sản phẩm: ");
         sc.nextLine();
         String Ten = sc.nextLine();
@@ -151,7 +157,7 @@ public class QuayKhac extends KhoHang {
 
     @Override
     public String toString() {
-        return ".Tên sản phẩm: " + Ten + " - "
+        return "Tên sản phẩm: " + Ten + " - "
                 + "Ma San Pham: " + MaSo + " - "
                 + "Xuất xứ: " + XuatXu + " - "
                 + "Số lượng: " + SoLuong + " - "

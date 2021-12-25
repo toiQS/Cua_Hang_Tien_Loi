@@ -255,16 +255,19 @@ public class QuanLy {
                                     nhanSu();
                                     switch (luaChon()) {
                                         case 1 -> {
+                                            NhanSu.xuatBaoVe();
                                             NhanSu baoVe = new BaoVe();
-                                            baoVe.del();
+                                            baoVe.SuaThongTin();
                                         }
                                         case 2 -> {
-                                            NhanSu baoVe = new LaoCong();
-                                            baoVe.del();
+                                            NhanSu.xuatLaoCong();
+                                            NhanSu lapCong = new LaoCong();
+                                            lapCong.SuaThongTin();
                                         }
                                         case 3 -> {
-                                            NhanSu baoVe = new NhanVien();
-                                            baoVe.del();
+                                            NhanSu.xuatNhanVien();
+                                            NhanSu nhanVien = new NhanVien();
+                                            nhanVien.SuaThongTin();
                                         }
                                         case 4 -> {
                                             endNhanSu = 1;

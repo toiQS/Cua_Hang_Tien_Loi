@@ -6,12 +6,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class NhanVien extends NhanSu {
-    public static int stt = 1;
     public static float luong = 0;
 
     public NhanVien(String Ten, String MaSo, String CCCD, String GioiTinh, String DiaChi, String SDT, float Luong) {
         super(Ten, MaSo, CCCD, GioiTinh, DiaChi, SDT, Luong);
-        stt += 1;
     }
 
     public NhanVien() {
@@ -69,7 +67,13 @@ public class NhanVien extends NhanSu {
     public void SuaThongTin() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập vị trí muốn sửa: ");
-        int a = sc.nextInt();
+        int a;
+        try {
+            a = sc.nextInt();
+        } catch (Exception ignored) {
+            System.out.println("Không tồn tại nhân sự này!");
+            return;
+        }
         System.out.print("Tên nhân viên: ");
         sc.nextLine();
         String Ten = sc.nextLine();
@@ -136,7 +140,7 @@ public class NhanVien extends NhanSu {
 
     @Override
     public String toString() {
-        return stt + ".Họ Tên: " + Ten + " - "
+        return  "Họ Tên: " + Ten + " - "
                 + "Mã số nhân viên: " + MaSo + " - "
                 + "CCCD: " + CCCD + " - "
                 + "Giới Tính: " + GioiTinh + " - "
